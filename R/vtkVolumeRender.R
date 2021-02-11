@@ -4,6 +4,11 @@
 #'
 #' @import htmlwidgets
 #'
+#' @examples
+#'
+#' library(vtkwidgets)
+#' vtkVolumeRender( array(runif(1000), dim=rep(10, 3) ) )
+#'
 #' @export
 vtkVolumeRender <- function(image, width = NULL, height = NULL, elementId = NULL) {
 
@@ -49,9 +54,9 @@ vtkVolumeRenderOutput <- function(outputId, width = '100%', height = '400px'){
 }
 
 #' @rdname vtkVolumeRender-shiny
-#
+#'
 #' @examples
-#
+#'
 #' library(vtkwidgets)
 #' library(shiny)
 #'
@@ -75,6 +80,7 @@ vtkVolumeRenderOutput <- function(outputId, width = '100%', height = '400px'){
 #'    })
 #'  }
 #'))
+#'
 #' @export
 renderVtkVolumeRender <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted

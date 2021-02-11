@@ -9,3 +9,9 @@ vtkVolumeRender(image, width = NULL, height = NULL, elementId = NULL)
 \description{
 <Add Description>
 }
+\examples{
+
+library(vtkwidgets)
+vtkVolumeRender( array(runif(1000), dim=rep(10, 3) ) )
+
+}

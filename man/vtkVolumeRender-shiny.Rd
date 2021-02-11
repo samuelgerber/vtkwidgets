@@ -29,6 +29,7 @@ Output and render functions for using vtkVolumeRender within Shiny
 applications and interactive Rmd documents.
 }
 \examples{
+
 library(vtkwidgets)
 library(shiny)
 
@@ -52,4 +53,5 @@ runApp(list(
    })
  }
 ))
+
 }
