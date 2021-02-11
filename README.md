@@ -27,7 +27,7 @@ library(vtkwidgets)
 library(shiny)
 runApp(list(
   ui = bootstrapPage(
-    actionButton("update","update gauge"),
+    actionButton("update","update random volume"),
     # example use of the automatically generated output function
     vtkVolumeRenderOutput("volume1")
   ),
