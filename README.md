@@ -21,7 +21,7 @@ vtkVolumeRender( array(runif(1000), dim=rep(10, 3) ) )
 ```
 
 
-Shiny bindingse:
+Shiny bindings:
 ```R
 library(vtkwidgets)
 library(shiny)
