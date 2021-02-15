@@ -11,24 +11,9 @@
 #'
 #' @export
 vtkVolumeRender <- function(image, width = NULL, height = NULL, elementId = NULL) {
-
-  # forward options using x
-  dim = dim(image) - 1
-  x = list(
-    data = as.vector(image),
-    extent = c(0, dim[1], 0, dim[2], 0, dim[3])
-  )
-  #print(toJSON(x))
-
-  # create widget
-  htmlwidgets::createWidget(
-    name = 'vtkVolumeRender',
-    x,
-    width = width,
-    height = height,
-    package = 'vtkwidgets',
-    elementId = elementId
-  )
+  data = toVtkImage(image)
+  render.function = system.file("vtkscripts", "volumerender.js", package = "vtkwidgets")
+  vtkWidget(data, render.function)
 }
 
 #' Shiny bindings for vtkVolumeRender
