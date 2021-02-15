@@ -49,7 +49,7 @@ runApp(list(
 
    # example use of the automatically generated render function
    output$volume1 <- renderVtkWidget({
-     vtkWidget(value())
+     vtkVolumeRender(value())
    })
  }
 ))

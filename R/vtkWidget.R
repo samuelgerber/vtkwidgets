@@ -134,7 +134,7 @@ vtkWidgetOutput <- function(outputId, width = '100%', height = '400px'){
 #'
 #'    # example use of the automatically generated render function
 #'    output$volume1 <- renderVtkWidget({
-#'      vtkWidget(value())
+#'      vtkVolumeRender(value())
 #'    })
 #'  }
 #'))
