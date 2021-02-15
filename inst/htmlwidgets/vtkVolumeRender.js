@@ -6,7 +6,6 @@ HTMLWidgets.widget({
 
   factory: function(el, width, height) {
 
-    // TODO: define shared variables for this instance
 
     // pseudo imports (avoids having to use fully qualified names)
     var vtkFullScreenRenderWindow = vtk.Rendering.Misc.vtkFullScreenRenderWindow;
@@ -37,7 +36,7 @@ HTMLWidgets.widget({
 
     const controllerWidget = vtkVolumeController.newInstance({
       size: [400, 150],
-      rescaleColorMap: true,
+      rescaleColorMap: false,
     });
 
     function initProps(property) {
@@ -107,6 +106,10 @@ HTMLWidgets.widget({
           controllerWidget.setContainer(el);
           const isBackgroundDark = true;
           controllerWidget.setupContent(renderWindow, volumeActor, isBackgroundDark, true, 'PuOr');
+          var widget = controllerWidget.getWidget();
+          widget.removeGaussian(0);
+          widget.addGaussian(0.2, 1, 0.25, -0.12, 0);
+          widget.addGaussian(0.8, 1, 0.25,  0.12, 0);
 
           fullScreenRenderer.setResizeCallback(({ width, height }) => {
             // 2px padding + 2x1px boder + 5px edge = 14
