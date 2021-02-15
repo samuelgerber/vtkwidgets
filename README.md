@@ -27,7 +27,7 @@ library(vtkwidgets)
 library(shiny)
 runApp(list(
   ui = bootstrapPage(
-    vtkVolumeRenderOutput("volume1"),
+    vtkWidgetOutput("volume1"),
     actionButton("update","update random volume")
   ),
   server = function(input, output) {
@@ -36,7 +36,7 @@ runApp(list(
       array(runif(1000), dim=rep(10, 3) )
     })
 
-    output$volume1 <- renderVtkVolumeRender({
+    output$volume1 <- renderVtkWidget({
       vtkVolumeRender(value())
     })
   }
