@@ -64,7 +64,8 @@ string literal) that has two inputs
   widget render function. The global setup contains some default setup and convenience
   functions, which you can see in [vtkWidget.js](inst/htmlwidgets/vtkWidget.js).
 
-For an example to see how to pass data and setup a vtk pipeline
+For an example to see how to pass data and setup a vtk pipeline see
+[marchingcubes.js](inst/vtkscripts/marchingcubes.js) and
 [volumerender.js](inst/vtkscripts/volumerender.js).
 
 This setup allwos to pass your own vtk.js pipeline and data to the vtkWidget.
