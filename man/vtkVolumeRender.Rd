@@ -2,12 +2,16 @@
 % Please edit documentation in R/vtkWidget.R
 \name{vtkVolumeRender}
 \alias{vtkVolumeRender}
-\title{<Add Title>}
+\title{vtk Volume Rendering}
 \usage{
 vtkVolumeRender(image, width = NULL, height = NULL, elementId = NULL)
 }
+\arguments{
+\item{image}{3d array to volume render}
+}
 \description{
-<Add Description>
+Convenience wrapper to create vtkWidget for
+volume rendering
 }
 \examples{
 

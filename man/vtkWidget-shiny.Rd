@@ -35,9 +35,8 @@ library(shiny)
 
 runApp(list(
  ui = bootstrapPage(
-   actionButton("update","update gauge"),
-   # example use of the automatically generated output function
-   vtkWidgetOutput("volume1")
+   vtkWidgetOutput("volume1"),
+   actionButton("update","Update Volume")
  ),
  server = function(input, output) {
 

@@ -1,14 +1,36 @@
-#' <Add Title>
+#' Create a vtk widget
 #'
-#' <Add Description>
+#' This function takes data and two javascript
+#' functions in plain text (vector of strings).
+#' The javascript function is called when the
+#' vtkwidget is rendered and receives the
+#' data object. For an example see
+#' inst/vtkscripts/volumerender.js.
+#'
+#' @param data data to be passed to the widget
+#' @param renderFunction javascript function that
+#'    contains the desired rendering. The function
+#'    takes two parameters:
+#'    The argument x which contains the data passed
+#'    to the widget parsed by JSON.
+#'    The argument global is a javascript object
+#'    contain state to be stored across
+#'    calls of the function. See
+#'    inst/htmlwidgets/vtkWidget.js for details of
+#'    the global object. For an example rendering
+#'    functions see
+#'    inst/vtkscripts/volumerender.js
+#'
+#' @param resizeFunction javascript function
 #'
 #' @import htmlwidgets
 #'
 #' @examples
 #'
 #' library(vtkwidgets)
-#'
-#' vtkWidget()
+#' data = vtkImageData(image)
+#' render = readLines( system.file("vtkscripts", "volumerender.js", package = "vtkwidgets") )
+#' vtkWidget(data, renderFunction=render)
 #'
 #' @export
 vtkWidget <- function(data, renderFunction = "function(x, global){}",
@@ -34,9 +56,17 @@ vtkWidget <- function(data, renderFunction = "function(x, global){}",
   )
 }
 
-#' <Add Title>
+#' vtk Image Data
 #'
-#' <Add Description>
+#' Convenience function to create a list
+#' object for an image that can
+#' be passed to the vtkWidget. The vtkWidget
+#' will pass it to the unerying
+#' java script as a javascript object
+#'
+#' @param a 3d array
+#' @param origin image origin
+#' @param spacing image spacing
 #'
 #' @export
 vtkImageData <- function(a, origin=rep(0, length(dim(a))), spacing=rep(1, length(dim(a))) ){
@@ -50,9 +80,12 @@ vtkImageData <- function(a, origin=rep(0, length(dim(a))), spacing=rep(1, length
 }
 
 
-#' <Add Title>
+#' vtk Volume Rendering
 #'
-#' <Add Description>
+#' Convenience wrapper to create vtkWidget for
+#' volume rendering
+#'
+#' @param image 3d array to volume render
 #'
 #' @import htmlwidgets
 #'
@@ -68,9 +101,13 @@ vtkVolumeRender <- function(image, width = NULL, height = NULL, elementId = NULL
   vtkWidget(data, renderFunction=render, width=width, height=height, elementId=elementId)
 }
 
-#' <Add Title>
+#' vtk Volume Rendering
 #'
-#' <Add Description>
+#' Convenience wrapper to create vtkWidget for
+#' extracting and rendering an isosurface
+#'
+#' @param image 3d array, input to marching cubes
+#' @param isovalue isovalue for marching cubes
 #'
 #' @import htmlwidgets
 #'
@@ -120,9 +157,8 @@ vtkWidgetOutput <- function(outputId, width = '100%', height = '400px'){
 #'
 #' runApp(list(
 #'  ui = bootstrapPage(
-#'    actionButton("update","update gauge"),
-#'    # example use of the automatically generated output function
-#'    vtkWidgetOutput("volume1")
+#'    vtkWidgetOutput("volume1"),
+#'    actionButton("update","Update Volume")
 #'  ),
 #'  server = function(input, output) {
 #'

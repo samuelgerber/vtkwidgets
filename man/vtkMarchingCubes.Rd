@@ -2,7 +2,7 @@
 % Please edit documentation in R/vtkWidget.R
 \name{vtkMarchingCubes}
 \alias{vtkMarchingCubes}
-\title{<Add Title>}
+\title{vtk Volume Rendering}
 \usage{
 vtkMarchingCubes(
   image,
@@ -12,8 +12,14 @@ vtkMarchingCubes(
   elementId = NULL
 )
 }
+\arguments{
+\item{image}{3d array, input to marching cubes}
+
+\item{isovalue}{isovalue for marching cubes}
+}
 \description{
-<Add Description>
+Convenience wrapper to create vtkWidget for
+extracting and rendering an isosurface
 }
 \examples{
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/vtkWidget.R
 \name{vtkImageData}
 \alias{vtkImageData}
-\title{<Add Title>}
+\title{vtk Image Data}
 \usage{
 vtkImageData(
   a,
@@ -10,6 +10,17 @@ vtkImageData(
   spacing = rep(1, length(dim(a)))
 )
 }
+\arguments{
+\item{a}{3d array}
+
+\item{origin}{image origin}
+
+\item{spacing}{image spacing}
+}
 \description{
-<Add Description>
+Convenience function to create a list
+object for an image that can
+be passed to the vtkWidget. The vtkWidget
+will pass it to the unerying
+java script as a javascript object
 }

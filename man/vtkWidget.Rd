@@ -2,7 +2,7 @@
 % Please edit documentation in R/vtkWidget.R
 \name{vtkWidget}
 \alias{vtkWidget}
-\title{<Add Title>}
+\title{Create a vtk widget}
 \usage{
 vtkWidget(
   data,
@@ -13,13 +13,37 @@ vtkWidget(
   elementId = NULL
 )
 }
+\arguments{
+\item{data}{data to be passed to the widget}
+
+\item{renderFunction}{javascript function that
+contains the desired rendering. The function
+takes two parameters:
+The argument x which contains the data passed
+to the widget parsed by JSON.
+The argument global is a javascript object
+contain state to be stored across
+calls of the function. See
+inst/htmlwidgets/vtkWidget.js for details of
+the global object. For an example rendering
+functions see
+inst/vtkscripts/volumerender.js}
+
+\item{resizeFunction}{javascript function}
+}
 \description{
-<Add Description>
+This function takes data and two javascript
+functions in plain text (vector of strings).
+The javascript function is called when the
+vtkwidget is rendered and receives the
+data object. For an example see
+inst/vtkscripts/volumerender.js.
 }
 \examples{
 
 library(vtkwidgets)
-
-vtkWidget()
+data = vtkImageData(image)
+render = readLines( system.file("vtkscripts", "volumerender.js", package = "vtkwidgets") )
+vtkWidget(data, renderFunction=render)
 
 }
