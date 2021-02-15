@@ -1,23 +1,10 @@
 
 function (x, global) {
   // pseudo imports (avoids having to use fully qualified names)
-  var vtkFullScreenRenderWindow = vtk.Rendering.Misc.vtkFullScreenRenderWindow;
   var vtkImageData = vtk.Common.DataModel.vtkImageData;
-  var vtkDataArray = vtk.Common.Core.vtkDataArray;
-  var vtkVolume = vtk.Rendering.Core.vtkVolume;
-  var vtkVolumeMapper = vtk.Rendering.Core.vtkVolumeMapper;
-  var vtkColorTransferFunction = vtk.Rendering.Core.vtkColorTransferFunction;
-  var vtkPiecewiseFunction = vtk.Common.DataModel.vtkPiecewiseFunction;
-  var VtkDataTypes = vtkDataArray.VtkDataTypes;
-  var vtkVolumeController = vtk.Interaction.UI.vtkVolumeController;
   var vtkActor = vtk.Rendering.Core.vtkActor;
   var vtkImageMarchingCubes = vtk.Filters.General.vtkImageMarchingCubes;
   var vtkMapper = vtk.Rendering.Core.vtkMapper;
-  var vtkImageMapper = vtk.Rendering.Core.vtkImageMapper;
-  var vtkImageMarchingCubes = vtk.Filters.General.vtkImageMarchingCubes;
-  var vtkMapper = vtk.Rendering.Core.vtkMapper;
-  var vtkImageMapper = vtk.Rendering.Core.vtkImageMapper;
-
 
   var el = global.el
   var width = global.width
@@ -63,6 +50,4 @@ function (x, global) {
   }
 
   renderWindow.render();
-  console.log( renderer.getLastRenderingUsedDepthPeeling());
-
 }
