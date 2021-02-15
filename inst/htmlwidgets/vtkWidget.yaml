@@ -1,0 +1,6 @@
+# (uncomment to add a dependency)
+ dependencies:
+  - name: vtk
+    version:  16.2.2
+    src: htmlwidgets
+    script: ./lib/vtk.js
