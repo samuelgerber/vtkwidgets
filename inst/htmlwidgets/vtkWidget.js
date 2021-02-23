@@ -40,7 +40,6 @@ HTMLWidgets.widget({
         imageData.setOrigin(x.origin);
         imageData.setSpacing(x.spacing);
         imageData.setExtent(x.extent);
-        console.log(imageData)
         imageData.getPointData().setScalars(scalars);
         return imageData
       },

@@ -71,7 +71,7 @@ function (x, global) {
     global.initialized = true;
     global.controllerWidget = vtkVolumeController.newInstance({
       size: [400, 150],
-      rescaleColorMap: false,
+      rescaleColorMap: true,
     });
     global.controllerWidget.setContainer(el);
     const isBackgroundDark = true;
